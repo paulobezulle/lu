@@ -249,20 +249,10 @@ def main():
 
     print('Condition number %f' %(np.linalg.cond(H)))
     print('Inversa: nossa = do Numpy? %s' 
-#                                    %(np.allclose(Hi, npHi)))
+                                    %(np.allclose(Hi, npHi)))
     print('H @ Hi = I? %s' %(np.allclose(H @ Hi, np.identity(n))))
     print(H @ Hi)
 
 
 main()
 
-M=np.random.rand(100,100)
-
-(P, L, U) = lu(M)
-
-Li = invTI(L)
-Ui = invTS(U)
-
-print(Ui@Li@P)
-print(np.linalg.inv(M))
-print(np.allclose(Ui@Li@P, np.linalg.inv(M)))
